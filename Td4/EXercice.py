@@ -6,6 +6,7 @@ def saisir():
     fichier.write(message)
     fichier.close()
 
+
 def frequences_caracteres():
     fichier = open("./msg.txt", "r", encoding = 'utf-8')
     text = fichier.read()
