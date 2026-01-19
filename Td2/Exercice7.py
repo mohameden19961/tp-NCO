@@ -5,7 +5,7 @@ from PIL import Image
 
 
 def charger_image(path):
-    img = Image.open(path).convert("L")  # L = grayscale
+    img = Image.open(path).convert("L")  
     pixels = np.array(img).flatten()
     return pixels
 

@@ -1,19 +1,9 @@
 import math
-
-def saisir():
-    message = "institut supérieur du numérique"
-    fichier = open("./msg.txt", "w" , encoding="utf-8")
-    fichier.write(message)
-    fichier.close()
-
+message = "institut supérieur du numérique"
 
 def frequences_caracteres():
-    fichier = open("./msg.txt", "r", encoding = 'utf-8')
-    text = fichier.read()
-    fichier.close()    
-    
     frequences = {}
-    for caractere in text:
+    for caractere in message:
         if caractere in frequences:
             frequences[caractere] += 1
         else:
@@ -85,7 +75,7 @@ def coder_message(message, codes):
     return resultat
 
 def main():
-    saisir()
+    
     freqs = frequences_caracteres()
     probas = probabilites(freqs)
     h_source = entropie(probas)
@@ -93,10 +83,6 @@ def main():
     print("Entropie :", h_source)
 
     codes = generer_codes_sf(probas)
-
-    fichier = open("./msg.txt", "r", encoding = 'utf_8')
-    message = fichier.read()
-    fichier.close()      
 
     message_code = coder_message(message, codes)
     
