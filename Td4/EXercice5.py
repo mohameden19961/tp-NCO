@@ -25,7 +25,7 @@ def entropie(probas):
         h += p * math.log2(p)
     return -h
 
-def shannon_fano_rec(liste, prefixe, codes):
+def shannon_fano(liste, prefixe, codes):
     if len(liste) == 1:
         caractere = liste[0][0]
         codes[caractere] = prefixe
@@ -48,8 +48,8 @@ def shannon_fano_rec(liste, prefixe, codes):
         else:
             break
 
-    shannon_fano_rec(liste[:split_index], prefixe + "0", codes)
-    shannon_fano_rec(liste[split_index:], prefixe + "1", codes)
+    shannon_fano(liste[:split_index], prefixe + "0", codes)
+    shannon_fano(liste[split_index:], prefixe + "1", codes)
 
 def generer_codes_sf(probas):
     liste_probas = []
@@ -65,7 +65,7 @@ def generer_codes_sf(probas):
                 liste_probas[j + 1] = temp
                 
     codes = {}
-    shannon_fano_rec(liste_probas, "", codes)
+    shannon_fano(liste_probas, "", codes)
     return codes
 
 def coder_message(message, codes):
