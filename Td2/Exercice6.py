@@ -2,14 +2,12 @@ import math
 
 def saisir():
     message = input("Saisir un texte(message) : ")
-    fichier = open("msg.txt", "w" , encoding="utf-8")
-    fichier.write(message)
-    fichier.close()
-
+    with open("msg.txt", "w" ,encoding = 'utf_8') as fichier:
+        fichier.write(message)
+   
 def frequences_caracteres():
-    fichier = open("msg.txt", "r", encoding = 'utf-8')
-    text=fichier.read()
-    fichier.close()    
+    with open("msg.txt", "r" ,encoding = 'utf_8') as fichier:
+        text=fichier.read()
     
     frequences = {}
     for caractere in text:
@@ -120,10 +118,10 @@ def main():
     racine = arbre_huffman(probas)
     codes = codes_huffman(racine)
 
-    fichier = open("msg.txt", "r", encoding = 'utf_8')
-    message=fichier.read()
-    fichier.close()      
+    with open("msg.txt", "r" ,encoding = 'utf_8') as fichier:
+        text=fichier.read()     
 
+   
     message_code = coder_message(message, codes)
  
     print("Codes Huffman :", codes)
