@@ -119,7 +119,7 @@ def main():
     codes = codes_huffman(racine)
 
     with open("msg.txt", "r" ,encoding = 'utf_8') as fichier:
-        text=fichier.read()     
+        message=fichier.read()     
 
    
     message_code = coder_message(message, codes)
