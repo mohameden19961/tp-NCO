@@ -2,11 +2,11 @@ import math
 
 def saisir():
     message = input("Saisir un texte(message) : ")
-    with open("Td2/msg.txt", "w" ,encoding = 'utf_8') as fichier:
+    with open("Td2/msg.txt", "w" ,encoding = 'utf-8') as fichier:
         fichier.write(message)
    
 def frequences_caracteres():
-    with open("Td2/msg.txt", "r" ,encoding = 'utf_8') as fichier:
+    with open("Td2/msg.txt", "r" ,encoding = 'utf-8') as fichier:
         text=fichier.read()
     
     frequences = {}
