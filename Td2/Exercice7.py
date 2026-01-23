@@ -115,11 +115,10 @@ def efficacite_et_redondance(entropie, longueur):
 
 
 def main():
-    pixels = charger_image("logo.png")  
+    pixels = charger_image("Td2/Gif.gif")  
     freqs = histogramme(pixels)
     probas = probabilites(freqs)
 
-    infos = information_propre(probas)
     H = entropie(probas)
 
     racine = arbre_huffman(probas)
@@ -127,14 +126,14 @@ def main():
 
     L = longueur_moyenne(probas, codes)
     efficacite, redondance = efficacite_et_redondance(H, L)
-
+    print("Informations propres :", information_propre(probas))
     print("Entropie H =", H)
     print("Longueur moyenne L =", L)
     print("Efficacité =", efficacite)
     print("Redondance =", redondance)
 
     print("\nCodes Huffman (niveau de gris : code) :")
-    for k in (codes):
+    for k in sorted(codes):
         print(k, ":", codes[k])
 
 main()
