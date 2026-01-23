@@ -22,7 +22,7 @@ def gain_compression(original_size, compressed_size):
     return (1 - compressed_size / original_size) * 100
 
 def main():
-    image = Image.open("./image.png").convert("L")
+    image = Image.open("Td4/image.png").convert("L")
 
     image_array = np.array(image)
 
